@@ -1,15 +1,22 @@
 ---
-import {Icon} from 'astro-icon'
-import { socials } from '../data/socials';
+import { Icon } from "astro-icon";
+import { socials } from "../data/socials";
 ---
 
 <ul class="social__list">
-  {socials.map(social => (
-  <li>
-    <a href={social.url} title={`Open ${social.name} profile`}>
-      <Icon name={social.icon} width="24px" height="24px" />
-    </a>
-  </li>))}
+  {
+    socials.map((social) => (
+      <li>
+        <a
+          target="_blank"
+          href={social.url}
+          title={`Open ${social.name} profile`}
+        >
+          <Icon name={social.icon} width="24px" height="24px" />
+        </a>
+      </li>
+    ))
+  }
 </ul>
 
 <style>

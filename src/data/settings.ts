@@ -4,4 +4,5 @@ export const settings = {
   title: 'Site title',
   description: 'Site description',
   showLittleSticksPlug: true,
+  url: ''
 }
