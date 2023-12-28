@@ -3,6 +3,6 @@ export const settings = {
   name: 'Simple Blog',
   title: 'Site title',
   description: 'Site description',
-  showLittleSticksPlug: true,
+  showLittleSticksPlug: false,
   url: ''
 }
