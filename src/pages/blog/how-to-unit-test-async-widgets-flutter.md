@@ -8,19 +8,19 @@ category: 'Flutter'
 
 ## Introduction
 
-First of all. I have to say that i am not an expert on dart or any other programming language, but i've been searching for about this topic and did not fount so much information at all, so... Here i am, giving my best to try to as clear as posible my opion about how to test a cusotm widget wich content depends on an async call ( like from an API ).
+First of all. I have to say that i am not an expert on dart or any other programming language, but i've been searching about this topic and did not fount so much information at all, so... Here i am, giving my best to try to give my opion as clear as posible, about how to test a custom widget which content depends on an async call ( like from an API ).
 
 If you are reading this, you may have been struggling as me trying to test the data that comes from an external source inside a custom widget. If this is your case, then keep reading.
 
 ## Structure
 
-Yes! structure, thats the key. If you are building the widget in a way that the api call that retrieves the necesary data to display inside of it, it's been called (as it looks obvious) from the mothod initState(). You are wrong (as well as i was), becouse in a StatefulWidget, you can not access to the class that holds that initState method or any data at all, becouse it is a private class and the data inside of it can not be accesible from the outside.
+Yes! structure, thats the key. If you are building the widget in a way that the api call that retrieves the necesary data to display inside of it, it's been called (as it looks obvious) from the mothod **initState()**. You are wrong (as well as i was), becouse in a *StatefulWidget*, you can not access to the class that holds that *initState* method or any data at all, becouse it is a private class and the data inside of it can not be accesible from the outside.
 
 There my be some other ways to test this kind of widgets, but in my opinion this is the easiest way.
 
 ### **Services structure**
 
-Let's start by imaging we have a repository that have a method that retrieves our data from an API to later feed our widget with that data.
+Let's start by imaging we have a repository that has a method that retrieves our data from an API to later feed our widget with that data.
 
 ```js
 import 'package:dio/dio.dart';
@@ -45,7 +45,7 @@ In this case, we are getting info about one film of Star Wars.
 
 ### **Widget structure**
 
-Inside my main.dart, I have made a StatefulWidget called testableWidget that it is been call from my root widget MyApp and only displays the title of the movie if there is data.
+Inside my main.dart, I have made a *StatefulWidget* called **testableWidget** that it is been call from my root widget *MyApp* and only displays the title of the movie if there is data.
 
 ```js
 import 'package:flutter/material.dart';
@@ -105,7 +105,7 @@ class _TestableWidgetState extends State<TestableWidget> {
 }
 ```
 
-The thing here is that we are using the widget FutureBuilder, that let's you create a widget that builds itself based on the latest snapshot of interaction with a [Future]. So we are passing as prop the method from the repository that calls the API.
+The thing here is that we are using the widget **FutureBuilder**, that let's you create a widget that builds itself based on the latest snapshot of interaction with a [Future]. So we are passing as prop the method from the repository that calls the API.
 
 ```js
  home: TestableWidget(
@@ -113,7 +113,7 @@ The thing here is that we are using the widget FutureBuilder, that let's you cre
       ),
 ```
 
-Building the widget by this way, the logic reminds outside the widget and it is testable as you can find out trying to run this tests.
+Building the widget by this way, the logic reminds outside the widget and it is testable as you can find out trying to run the tests you see below.
 
 ## Tests
 
