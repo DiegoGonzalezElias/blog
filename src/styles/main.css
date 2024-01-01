@@ -17,11 +17,11 @@
   --theme-on-footer-background: hsl(0, 0%, 90%);
 
   /* Typography */
- /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
   --step--2: clamp(0.78rem, calc(0.71rem + 0.35vw), 0.96rem);
   --step--1: clamp(0.94rem, calc(0.84rem + 0.51vw), 1.20rem);
-  --step-0: clamp(1.13rem, calc(0.98rem + 0.73vw), 1.50rem);
+  --step-0: clamp(1.13rem, calc(0.98rem + 0.73vw), 1.2rem);
   --step-1: clamp(1.35rem, calc(1.15rem + 1.02vw), 1.88rem);
   --step-2: clamp(1.62rem, calc(1.34rem + 1.41vw), 2.34rem);
   --step-3: clamp(1.94rem, calc(1.56rem + 1.92vw), 2.93rem);
@@ -113,7 +113,7 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-.flow > * + * {
+.flow>*+* {
   margin-top: var(--flow-space, 1em);
 }
 
@@ -163,7 +163,7 @@ h3 {
 
 p,
 li {
-  max-width: 70ch;
+  max-width: 80ch;
 }
 
 pre {
@@ -184,11 +184,11 @@ pre copy-code-button {
 
 @media (prefers-reduced-motion: no-preference) {
   .fade-in[data-state=visible] {
-      transition: transform 700ms cubic-bezier(0.42, 0, 0.32, 1.17), opacity 1000ms cubic-bezier(0.42, 0, 0.32, 1.17) 200ms;
+    transition: transform 700ms cubic-bezier(0.42, 0, 0.32, 1.17), opacity 1000ms cubic-bezier(0.42, 0, 0.32, 1.17) 200ms;
   }
 
   .fade-in[data-state=hidden] {
-      transform: translateY(2ex);
-      opacity: 0;
+    transform: translateY(2ex);
+    opacity: 0;
   }
 }
